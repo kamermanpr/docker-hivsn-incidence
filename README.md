@@ -6,7 +6,7 @@ A dockerfile to create an image of the R environment required to run the 'hivsn-
 
 ## R environment
 
-The image is built using the [_rocker/verse_](https://hub.docker.com/r/rocker/verse/) image of [_base R_](https://cran.r-project.org/) _v3.5.1_, and includes [_RStudio server_](https://www.rstudio.com/products/rstudio/#Server), the [_TinyTex_](https://yihui.name/tinytex/) Latex distribution, the [_tidyverse_](https://www.tidyverse.org/) suite of R packages (with dependencies), and several R packages (with dependencies) that are required to run the markdown scripts in [_hivsn-incidence_](https://github.com/kamermanpr/hivsn-incidence.git). CRAN packages were installed from [MRAN](https://mran.microsoft.com/timemachine) using the 2018-11-30 snapshot for _R v3.5.1_. The only package installed from GitHub (_thomasp85/patchwork_) was locked to the 22 September 2018 commit: [_fd7958bae3e7a1e30237c751952e412a0a1d1242_](https://github.com/thomasp85/patchwork/tree/fd7958bae3e7a1e30237c751952e412a0a1d1242).
+The image is built using the [_rocker/verse_](https://hub.docker.com/r/rocker/verse/) image of [_base R_](https://cran.r-project.org/) _v3.5.1_, and includes [_RStudio server_](https://www.rstudio.com/products/rstudio/#Server), the [_TinyTex_](https://yihui.name/tinytex/) Latex distribution, the [_tidyverse_](https://www.tidyverse.org/) suite of R packages (with dependencies), and several R packages (with dependencies) that are required to run the markdown scripts in [_hivsn-incidence_](https://github.com/kamermanpr/hivsn-incidence.git). CRAN packages were installed from [MRAN](https://mran.microsoft.com/timemachine) using latest package versions at the time of the build. The only package installed from GitHub (_thomasp85/patchwork_) was locked to the 22 September 2018 commit: [_fd7958bae3e7a1e30237c751952e412a0a1d1242_](https://github.com/thomasp85/patchwork/tree/fd7958bae3e7a1e30237c751952e412a0a1d1242).
 
 ### Details
 - **OS:**  
@@ -19,20 +19,20 @@ The image is built using the [_rocker/verse_](https://hub.docker.com/r/rocker/ve
     - patchwork  
 - **MRAN packages:**  
     - boot
-	- car
-	- coin
-	- ggplot2
-	- glmnetUtils
-	- knitr
-	- lmerTest
-	- LogisticDx
-	- lubridate
-	- magrittr
-	- readxl
-	- rcompanion
-	- skimr
-	- survival
-	- survminer
+    - car
+    - coin
+    - ggplot2
+    - glmnetUtils
+    - knitr
+    - lmerTest
+    - LogisticDx
+    - lubridate
+    - magrittr
+    - readxl
+    - rcompanion
+    - skimr
+    - survival
+    - survminer
 - **LaTex:**   
     - TinyTex
 
