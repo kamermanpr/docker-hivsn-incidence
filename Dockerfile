@@ -38,4 +38,4 @@ RUN install2.r --error --deps TRUE \
 	rcompanion \
 	skimr \
 	survival \
-	survminer \
+	survminer
