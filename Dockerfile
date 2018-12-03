@@ -22,7 +22,8 @@ RUN Rscript -e "devtools::install_github('thomasp85/patchwork', ref = 'fd7958bae
 
 #-- Install extra packages --#
 
-RUN install2.r --error --deps TRUE \
+RUN install2.r --error
+	--deps TRUE \
 	boot \
 	car \
 	coin \
