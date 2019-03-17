@@ -42,11 +42,11 @@ You need to have Docker installed on your computer. To do so, go to [docker.com]
 
 #### Download the latest image
 
-Enter: `docker pull kamermanpr/docker-incidentHIVSN:v1.0.2`
+Enter: `docker pull kamermanpr/docker-incidentHIVSN:v1.0.3`
 
 #### Run the container
 
-Enter: `docker run run --name hivsn -d -p 8787:8787 -e USER=user -e PASSWORD=password kamermanpr/docker-incidentHIVSN:v1.0.2`
+Enter: `docker run run --name hivsn -d -p 8787:8787 -e USER=user -e PASSWORD=password kamermanpr/docker-incidentHIVSN:v1.0.3`
 
 #### Login to RStudio Server
 
@@ -81,4 +81,4 @@ To run individual RMarkdown scripts (_\*.Rmd_ files)
 
 #### Shutting down
 
-Once done, log out of RStudio Server and enter the following into a terminal to stop the Docker container: `docker stop hivsn`. If you then want to remove the container, enter: `docker rm hivsn`. If you also want to remove the Docker image you downloaded, enter: `docker rmi kamermanpr/docker-incidentHIVSN:v1.0.2`
+Once done, log out of RStudio Server and enter the following into a terminal to stop the Docker container: `docker stop hivsn`. If you then want to remove the container, enter: `docker rm hivsn`. If you also want to remove the Docker image you downloaded, enter: `docker rmi kamermanpr/docker-incidentHIVSN:v1.0.3`
