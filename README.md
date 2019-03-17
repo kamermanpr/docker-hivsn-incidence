@@ -6,13 +6,13 @@ A dockerfile to create an image of the R environment required to run the 'hivsn-
 
 ## R environment
 
-The image is built using the [_rocker/verse_](https://hub.docker.com/r/rocker/verse/) image of [_base R_](https://cran.r-project.org/) _v3.5.1_, and includes [_RStudio server_](https://www.rstudio.com/products/rstudio/#Server), the [_TinyTex_](https://yihui.name/tinytex/) Latex distribution, the [_tidyverse_](https://www.tidyverse.org/) suite of R packages (with dependencies), and several R packages (with dependencies) that are required to run the markdown scripts in [_hivsn-incidence_](https://github.com/kamermanpr/hivsn-incidence.git). CRAN packages were installed from [MRAN](https://mran.microsoft.com/timemachine) using latest package versions at the time of the build. The only package installed from GitHub (_thomasp85/patchwork_) was locked to the 22 September 2018 commit: [_fd7958bae3e7a1e30237c751952e412a0a1d1242_](https://github.com/thomasp85/patchwork/tree/fd7958bae3e7a1e30237c751952e412a0a1d1242).
+The image is built using the [_rocker/verse_](https://hub.docker.com/r/rocker/verse/) image of [_base R_](https://cran.r-project.org/) _v3.5.2_, and includes [_RStudio server_](https://www.rstudio.com/products/rstudio/#Server), the [_TinyTex_](https://yihui.name/tinytex/) Latex distribution, the [_tidyverse_](https://www.tidyverse.org/) suite of R packages (with dependencies), and several R packages (with dependencies) that are required to run the markdown scripts in [_hivsn-incidence_](https://github.com/kamermanpr/hivsn-incidence.git). CRAN packages were installed from [MRAN](https://mran.microsoft.com/timemachine) using latest package versions at the time of the build. The only package installed from GitHub (_thomasp85/patchwork_) was locked to the 22 September 2018 commit: [_fd7958bae3e7a1e30237c751952e412a0a1d1242_](https://github.com/thomasp85/patchwork/tree/fd7958bae3e7a1e30237c751952e412a0a1d1242).
 
 ### Details
 - **OS:**  
     - Debian:stretch
 - **R:**  
-    - v3.5.1  
+    - v3.5.2  
 - **RStudio server:**  
     - v1.1.456 
 - **GitHub packages:**  
@@ -24,8 +24,6 @@ The image is built using the [_rocker/verse_](https://hub.docker.com/r/rocker/ve
     - ggplot2
     - glmnetUtils
     - knitr
-    - lmerTest
-    - LogisticDx
     - lubridate
     - magrittr
     - readxl
@@ -44,21 +42,19 @@ You need to have Docker installed on your computer. To do so, go to [docker.com]
 
 #### Download the latest image
 
-Enter: `docker pull kamermanpr/docker-incidentHIVSN:v1.0.1`
+Enter: `docker pull kamermanpr/docker-incidentHIVSN:v1.0.2`
 
 #### Run the container
 
-Enter: `docker run -d -p 8787:8787 -v </PATH>:/home/rstudio --name hivsn kamermanpr/docker-incidentHIVSN:v1.0.1`
-
-Where `</PATH>` refers to the path to the SPARS directory on your computer, which you either cloned from GitHub ([_kamermanpr/hivsn-incidence_](https://github.com/kamermanpr/hivsn-incidence.git), `git clone https://github.com/kamermanpr/hivsn-incidence`), or downloaded and extracted from figshare ([DOI: 10.6084/m9.figshare.???????](https://doi.org/10.6084/m9.figshare.???????)).
+Enter: `docker run run --name hivsn -d -p 8787:8787 -e USER=user -e PASSWORD=password kamermanpr/docker-incidentHIVSN:v1.0.2`
 
 #### Login to RStudio Server
 
 - Open a web browser window and navigate to: `localhost:8787`
 
 - Use the following login credentials: 
-    - Username: _rstudio_	
-    - Password: _rstudio_
+    - Username: _user_	
+    - Password: _password_
     
 #### Prepare the incidentHIVSN directory
 
@@ -85,4 +81,4 @@ To run individual RMarkdown scripts (_\*.Rmd_ files)
 
 #### Shutting down
 
-Once done, log out of RStudio Server and enter the following into a terminal to stop the Docker container: `docker stop hivsn`. If you then want to remove the container, enter: `docker rm hivsn`. If you also want to remove the Docker image you downloaded, enter: `docker rmi kamermanpr/docker-hivsn-incidence:v1.0.1`
+Once done, log out of RStudio Server and enter the following into a terminal to stop the Docker container: `docker stop hivsn`. If you then want to remove the container, enter: `docker rm hivsn`. If you also want to remove the Docker image you downloaded, enter: `docker rmi kamermanpr/docker-incidentHIVSN:v1.0.2`

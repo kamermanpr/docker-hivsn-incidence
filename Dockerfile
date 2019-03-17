@@ -1,41 +1,33 @@
 ###############################################################################
-# 									                                                          #
-# KAMERMANPR/HIVSN-INCIDENCE  				                                        #
-#									                                                            #
+#                                                                             #
+# KAMERMANPR/incidentHIVSN                                                    #
+#                                                                             #
+# <-- Build command -->                                                       #
+# docker build -t kamermanpr/docker-incidentHIVSN:<version>                   #
+#                                                                             #
+# <-- The build image can be downloaded from Docker Hub -->                   #
+# docker pull kamermanpr/docker-incidentHIVSN:<version>                       #
+#                                                                             #
+# <-- Run command -->                                                         #
+# docker run --name hivsn -d -p 8787:8787 -e USER=user -e PASSWORD=password   #
+# kamermanpr/docker-incidentHIVSN:<version>                                   #
+#                                                                             #
+# <-- Login to RStudio -->                                                    #
+# In your browser, navigate to: localhost:8787                                #
+# Username: user                                                              #
+# Password: password                                                          #
+#                                                                             #
 ###############################################################################
 
 #-- Get the verse rocker image --#
 
-FROM rocker/verse:3.5.1
+FROM rocker/verse:3.5.2
 
 MAINTAINER Peter Kamerman <peter.kamerman@gmail.com>
 
-#-- Run shell scripts --#
-# Copying git_config.sh into /etc/cont-init.d sets it to run at startup
-
-COPY git_config.sh /etc/cont-init.d/gitconfig
-
 # <-- Add GitHub package -->
-# Lock thomasp85/patchwork installation to 22 September 2018 commit: fd7958bae3e7a1e30237c751952e412a0a1d1242
-
-RUN Rscript -e "devtools::install_github('thomasp85/patchwork', ref = 'fd7958bae3e7a1e30237c751952e412a0a1d1242')"
+RUN Rscript -e "devtools::install_github('thomasp85/patchwork')"
 
 #-- Install extra packages --#
 
-RUN install2.r --error
-	--deps TRUE \
-	boot \
-	car \
-	coin \
-	ggplot2 \
-	glmnetUtils \
-	knitr \
-	lmerTest \
-	LogisticDx \
-	lubridate \
-	magrittr \
-	readxl \
-	rcompanion \
-	skimr \
-	survival \
-	survminer
+RUN Rscript -e "install.packages(c('tidyverse', 'magrittr', 'skimr', 'rcompanion', 'knitr', 'boot', 'coin', 'lubridate', 'glmnetUtils', 'survival', 'survminer', 'readxl'))"
