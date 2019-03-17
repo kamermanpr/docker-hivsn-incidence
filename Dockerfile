@@ -1,16 +1,16 @@
 ###############################################################################
 #                                                                             #
-# KAMERMANPR/incidentHIVSN                                                    #
+# KAMERMANPR/hivsn-incidence                                                  #
 #                                                                             #
 # <-- Build command -->                                                       #
-# docker build -t kamermanpr/docker-incidentHIVSN:<version>                   #
+# docker build -t kamermanpr/docker-hivsn-incidence:<version>                 #
 #                                                                             #
 # <-- The build image can be downloaded from Docker Hub -->                   #
-# docker pull kamermanpr/docker-incidentHIVSN:<version>                       #
+# docker pull kamermanpr/docker-hivsn-incidence:<version>                     #
 #                                                                             #
 # <-- Run command -->                                                         #
 # docker run --name hivsn -d -p 8787:8787 -e USER=user -e PASSWORD=password   #
-# kamermanpr/docker-incidentHIVSN:<version>                                   #
+# kamermanpr/docker-hivsn-incidence:<version>                                 #
 #                                                                             #
 # <-- Login to RStudio -->                                                    #
 # In your browser, navigate to: localhost:8787                                #
